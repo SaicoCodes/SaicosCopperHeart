@@ -1,0 +1,6 @@
+// 1.20.1	2025-07-26T06:06:19.5082487	Loot Tables
+7ddd96851af8e81acb44bddb05c9b4432d4f091e data/saicoscopperheartmod/loot_tables/blocks/copper_grate.json
+9252a3c56d535c7b352a41cf491b9aede712e7b1 data/saicoscopperheartmod/loot_tables/blocks/exposed_copper_grate.json
+ea4785d4f2536116fb67ea5ddca99e7f534e2b90 data/saicoscopperheartmod/loot_tables/blocks/oxidized_copper_grate.json
+b37609e745a087e170cda55b9902902c1e93eb3a data/saicoscopperheartmod/loot_tables/blocks/reinforced_copper_block.json
+742c150867ad144a0db59767fa3c1e3c3cbf28d6 data/saicoscopperheartmod/loot_tables/blocks/weathered_copper_grate.json

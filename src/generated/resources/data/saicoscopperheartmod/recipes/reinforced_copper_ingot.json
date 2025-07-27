@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "saicoscopperheartmod:reinforced_copper_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "saicoscopperheartmod:reinforced_copper_ingot"
+  }
+}

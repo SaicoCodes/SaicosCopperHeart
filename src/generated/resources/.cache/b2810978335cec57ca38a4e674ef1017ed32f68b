@@ -1,0 +1,5 @@
+// 1.20.1	2025-07-26T06:06:19.5047042	Tags for minecraft:block mod id saicoscopperheartmod
+9a9acd0ae152cd053521f789d7dd4b10fffc3840 data/minecraft/tags/blocks/mineable/pickaxe.json
+9a21dd9d143df2e01b945878654032b44828c21e data/minecraft/tags/blocks/needs_iron_tool.json
+9a9acd0ae152cd053521f789d7dd4b10fffc3840 data/minecraft/tags/blocks/needs_stone_tool.json
+9a9acd0ae152cd053521f789d7dd4b10fffc3840 data/saicoscopperheartmod/tags/blocks/custom_copper_blocks.json

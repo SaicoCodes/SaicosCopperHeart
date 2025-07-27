@@ -1,0 +1,14 @@
+{
+  "item.saicoscopperheartmod.copper_alloy": "Copper Alloy",
+  "item.saicoscopperheartmod.reinforced_copper_ingot": "Reinforced Copper Ingot",
+  "item.saicoscopperheartmod.copper_nugget": "Copper Nugget",
+
+  "block.saicoscopperheartmod.reinforced_copper_block": "Reinforced Copper Block",
+  "block.saicoscopperheartmod.copper_grate": "Copper Grate",
+  "block.saicoscopperheartmod.exposed_copper_grate": "Exposed Copper Grate",
+  "block.saicoscopperheartmod.weathered_copper_grate": "Weathered Copper Grate",
+  "block.saicoscopperheartmod.oxidized_copper_grate": "Oxidized Copper Grate",
+
+
+  "creativetab.copperheart_tab": "Saico's CopperHeart"
+}

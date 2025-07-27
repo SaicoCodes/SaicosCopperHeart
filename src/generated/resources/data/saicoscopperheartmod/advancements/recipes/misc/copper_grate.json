@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_copper_nugget": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "saicoscopperheartmod:reinforced_copper_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_reinforced_copper_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "saicoscopperheartmod:reinforced_copper_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "saicoscopperheartmod:copper_grate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_reinforced_copper_ingot",
+      "has_copper_nugget",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "saicoscopperheartmod:copper_grate"
+    ]
+  },
+  "sends_telemetry_event": false
+}
