@@ -6,6 +6,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.scrobattostudios.saicoscopperheartmod.SaicosCopperHeartMod;
+import net.scrobattostudios.saicoscopperheartmod.item.custom.ReinforcedCopperScytheItem;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -17,6 +18,9 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> COPPER_NUGGET = ITEMS.register("copper_nugget",
             () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> REINFORCED_COPPER_SCYTHE = ITEMS.register("reinforced_copper_scythe",
+            () -> new ReinforcedCopperScytheItem(new Item.Properties().durability(200)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

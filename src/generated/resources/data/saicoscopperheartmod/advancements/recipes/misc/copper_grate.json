@@ -1,19 +1,19 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_copper_nugget": {
+    "has_copper_ingot": {
       "conditions": {
         "items": [
           {
             "items": [
-              "saicoscopperheartmod:reinforced_copper_ingot"
+              "minecraft:copper_ingot"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_reinforced_copper_ingot": {
+    "has_copper_nugget": {
       "conditions": {
         "items": [
           {
@@ -34,7 +34,7 @@
   },
   "requirements": [
     [
-      "has_reinforced_copper_ingot",
+      "has_copper_ingot",
       "has_copper_nugget",
       "has_the_recipe"
     ]

@@ -4,6 +4,10 @@
     "saicoscopperheartmod:exposed_copper_grate",
     "saicoscopperheartmod:weathered_copper_grate",
     "saicoscopperheartmod:oxidized_copper_grate",
-    "saicoscopperheartmod:reinforced_copper_block"
+    "saicoscopperheartmod:reinforced_copper_block",
+    "saicoscopperheartmod:chiseled_copper_block",
+    "saicoscopperheartmod:exposed_chiseled_copper_block",
+    "saicoscopperheartmod:weathered_chiseled_copper_block",
+    "saicoscopperheartmod:oxidized_chiseled_copper_block"
   ]
 }

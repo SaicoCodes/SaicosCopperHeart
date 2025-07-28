@@ -12,6 +12,10 @@ public class ModTags {
     public static class Blocks {
         public static final TagKey<Block> CUSTOM_COPPER_BLOCKS = tag("custom_copper_blocks");
 
+        public static final TagKey<Block> NEEDS_REINFORCED_COPPER_TOOL = tag("needs_reinforced_copper_tool");
+
+        public static final TagKey<Block> SCYTHE_HARVESTABLE = tag("scythe_harvestable");
+
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(SaicosCopperHeartMod.MOD_ID, name));
         }

@@ -22,6 +22,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
@@ -49,27 +50,38 @@ public class CopperGrateBlock extends WeatheringCopperFullBlock implements Bucke
         if (currentBlock == ModBlocks.EXPOSED_COPPER_GRATE.get()) return ModBlocks.COPPER_GRATE.get();
         return null;
     }
+    private BlockState copyCommonProperties(BlockState from,
+                                            BlockState to) {
+        for (Property<?> prop : from.getProperties()) {
+            if (to.hasProperty(prop)) {
+                to = to.setValue((Property) prop, from.getValue((Property) prop));
+            }
+        }
+        return to;
+    }
+
 
 
     @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         if (!level.isClientSide && level instanceof ServerLevel serverLevel) {
-            serverLevel.scheduleTick(pos, this, 200); // ≈10 segundos
+
         }
     }
 
     @Override
-    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        Block currentBlock = state.getBlock();
-        Block nextBlock = getNextStage(currentBlock);
-
+    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
+        Block nextBlock = getNextStage(state.getBlock());
         if (nextBlock != null) {
-            boolean wasWaterlogged = state.getValue(BlockStateProperties.WATERLOGGED);
-            BlockState newState = nextBlock.defaultBlockState().setValue(BlockStateProperties.WATERLOGGED,wasWaterlogged);
-            level.setBlock(pos, newState,Block.UPDATE_ALL);
-            level.scheduleTick(pos, newState.getBlock(), 150); // Programamos el siguiente paso oxidativo
+            BlockState newState = copyCommonProperties(state, nextBlock.defaultBlockState());
+            world.setBlock(pos, newState, Block.UPDATE_ALL);
         }
     }
+    @Override
+    public boolean isRandomlyTicking(BlockState state) {
+        return getNextStage(state.getBlock()) != null;
+    }
+
 
     @Override
     public boolean skipRendering(BlockState thisState, BlockState adjacentState, Direction face){

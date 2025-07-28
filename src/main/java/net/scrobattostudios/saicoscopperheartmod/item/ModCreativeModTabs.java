@@ -22,11 +22,23 @@ public class ModCreativeModTabs {
                         output.accept(ModItems.REINFORCED_COPPER_INGOT.get());
                         output.accept(ModItems.COPPER_NUGGET.get());
 
+                        output.accept(ModItems.REINFORCED_COPPER_SCYTHE.get());
+
                         output.accept(ModBlocks.REINFORCED_COPPER_BLOCK.get());
+                        output.accept(ModBlocks.REINFORCED_COPPER_PANEL_BLOCK.get());
+
+                        output.accept(ModBlocks.REINFORCED_COPPER_PANEL_DOOR.get());
+                        output.accept(ModBlocks.REINFORCED_COPPER_PANEL_TRAPDOOR.get());
+
                         output.accept(ModBlocks.COPPER_GRATE.get());
                         output.accept(ModBlocks.EXPOSED_COPPER_GRATE.get());
                         output.accept(ModBlocks.WEATHERED_COPPER_GRATE.get());
                         output.accept(ModBlocks.OXIDIZED_COPPER_GRATE.get());
+
+                        output.accept(ModBlocks.CHISELED_COPPER_BLOCK.get());
+                        output.accept(ModBlocks.EXPOSED_CHISELED_COPPER_BLOCK.get());
+                        output.accept(ModBlocks.WEATHERED_CHISELED_COPPER_BLOCK.get());
+                        output.accept(ModBlocks.OXIDIZED_CHISELED_COPPER_BLOCK.get());
                     })
                     .build());
 

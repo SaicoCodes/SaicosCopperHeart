@@ -1,5 +1,8 @@
 {
   "values": [
-    "saicoscopperheartmod:reinforced_copper_block"
+    "saicoscopperheartmod:reinforced_copper_block",
+    "saicoscopperheartmod:reinforced_copper_panel_door",
+    "saicoscopperheartmod:reinforced_copper_panel_trapdoor",
+    "saicoscopperheartmod:reinforced_copper_panel_block"
   ]
 }

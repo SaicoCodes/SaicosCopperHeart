@@ -20,6 +20,15 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.EXPOSED_COPPER_GRATE.get());
         this.dropSelf(ModBlocks.WEATHERED_COPPER_GRATE.get());
         this.dropSelf(ModBlocks.OXIDIZED_COPPER_GRATE.get());
+        this.dropSelf(ModBlocks.CHISELED_COPPER_BLOCK.get());
+        this.dropSelf(ModBlocks.EXPOSED_CHISELED_COPPER_BLOCK.get());
+        this.dropSelf(ModBlocks.WEATHERED_CHISELED_COPPER_BLOCK.get());
+        this.dropSelf(ModBlocks.OXIDIZED_CHISELED_COPPER_BLOCK.get());
+        this.dropSelf(ModBlocks.REINFORCED_COPPER_PANEL_BLOCK.get());
+
+        this.dropSelf(ModBlocks.REINFORCED_COPPER_PANEL_TRAPDOOR.get());
+        this.add(ModBlocks.REINFORCED_COPPER_PANEL_DOOR.get(),
+                block -> createDoorTable(ModBlocks.REINFORCED_COPPER_PANEL_DOOR.get()));
     }
 
     @Override

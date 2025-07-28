@@ -1,4 +1,7 @@
-// 1.20.1	2025-07-26T06:06:19.5092549	Item Models: saicoscopperheartmod
+// 1.20.1	2025-07-27T21:12:17.4387835	Item Models: saicoscopperheartmod
 a1f9f8902c5ba949a873c6ade4831d3449030987 assets/saicoscopperheartmod/models/item/copper_alloy.json
 a3dcb80fb750c7c788b89df7265704e230838825 assets/saicoscopperheartmod/models/item/copper_nugget.json
 9c00e95036fc6cefcde63f3b37b8c8fba23b34bf assets/saicoscopperheartmod/models/item/reinforced_copper_ingot.json
+85a31fcfa1f955e277f99331be161df406a13a4f assets/saicoscopperheartmod/models/item/reinforced_copper_panel_door.json
+ff1bd079ed11a589ecd20ba8db6bbc16fc594480 assets/saicoscopperheartmod/models/item/reinforced_copper_panel_trapdoor.json
+b73e88fc05aacf045a06ead773964d7b43404610 assets/saicoscopperheartmod/models/item/reinforced_copper_scythe.json
