@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_reinforced_copper_block": {
+    "has_reinforced_copper_nugget": {
       "conditions": {
         "items": [
           {
             "items": [
-              "saicoscopperheartmod:reinforced_copper_block"
+              "saicoscopperheartmod:reinforced_copper_nugget"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_reinforced_copper_block",
+      "has_reinforced_copper_nugget",
       "has_the_recipe"
     ]
   ],

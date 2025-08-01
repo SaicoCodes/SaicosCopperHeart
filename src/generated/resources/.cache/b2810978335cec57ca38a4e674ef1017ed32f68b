@@ -1,6 +1,6 @@
-// 1.20.1	2025-07-27T22:15:07.7688657	Tags for minecraft:block mod id saicoscopperheartmod
+// 1.20.1	2025-07-27T23:15:19.3146521	Tags for minecraft:block mod id saicoscopperheartmod
 9b933f0bb2a2312a1c8a7ca5483ee41678f4b1ed data/minecraft/tags/blocks/mineable/pickaxe.json
 2abc1af64943d19b548b741a5e1cb9c98b998315 data/minecraft/tags/blocks/needs_iron_tool.json
 dbcd08f90dbbd7b748e9bf6c9cbbfd583b0635a3 data/minecraft/tags/blocks/needs_stone_tool.json
 9b933f0bb2a2312a1c8a7ca5483ee41678f4b1ed data/saicoscopperheartmod/tags/blocks/custom_copper_blocks.json
-9cd054d89cd9ea9cb208d7df988d711b659e35b1 data/saicoscopperheartmod/tags/blocks/scythe_harvestable.json
+2bf09079a0787a2f5829c79f53f9fd1391f31172 data/saicoscopperheartmod/tags/blocks/scythe_harvestable.json

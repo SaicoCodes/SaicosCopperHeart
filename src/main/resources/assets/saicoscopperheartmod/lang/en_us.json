@@ -2,7 +2,9 @@
   "item.saicoscopperheartmod.copper_alloy": "Copper Alloy",
   "item.saicoscopperheartmod.copper_nugget": "Copper Nugget",
   "item.saicoscopperheartmod.reinforced_copper_ingot": "Reinforced Copper Ingot",
+  "item.saicoscopperheartmod.reinforced_copper_nugget": "Reinforced Copper Nugget",
   "item.saicoscopperheartmod.reinforced_copper_scythe": "Reinforced Copper Scythe",
+  "item.saicoscopperheartmod.reinforced_copper_boots": "Reinforced Copper Boots",
 
   "block.saicoscopperheartmod.reinforced_copper_block": "Reinforced Copper Block",
   "block.saicoscopperheartmod.reinforced_copper_panel_block": "Reinforced Copper Panel Block",
@@ -21,7 +23,6 @@
   "block.saicoscopperheartmod.exposed_chiseled_copper_block": "Exposed Chiseled Copper Block",
   "block.saicoscopperheartmod.weathered_chiseled_copper_block": "Weathered Chiseled Copper Block",
   "block.saicoscopperheartmod.oxidized_chiseled_copper_block": "Oxidized Chiseled Copper Block",
-
 
   "creativetab.copperheart_tab": "Saico's CopperHeart"
 }

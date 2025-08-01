@@ -76,6 +76,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                         Blocks.LARGE_FERN,
                         Blocks.SUGAR_CANE,
                         Blocks.BAMBOO,
+                        Blocks.PUMPKIN_STEM,
+                        Blocks.MELON_STEM,
                         Blocks.NETHER_WART
                 );
 

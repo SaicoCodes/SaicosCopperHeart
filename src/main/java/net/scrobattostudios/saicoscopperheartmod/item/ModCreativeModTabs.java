@@ -21,8 +21,11 @@ public class ModCreativeModTabs {
                         output.accept(ModItems.COPPER_ALLOY.get());
                         output.accept(ModItems.REINFORCED_COPPER_INGOT.get());
                         output.accept(ModItems.COPPER_NUGGET.get());
+                        output.accept(ModItems.REINFORCED_COPPER_NUGGET.get());
 
                         output.accept(ModItems.REINFORCED_COPPER_SCYTHE.get());
+
+                        output.accept(ModItems.REINFORCED_COPPER_BOOTS.get());
 
                         output.accept(ModBlocks.REINFORCED_COPPER_BLOCK.get());
                         output.accept(ModBlocks.REINFORCED_COPPER_PANEL_BLOCK.get());

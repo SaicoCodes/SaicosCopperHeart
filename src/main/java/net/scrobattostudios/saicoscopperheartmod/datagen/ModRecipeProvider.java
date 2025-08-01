@@ -2,6 +2,7 @@ package net.scrobattostudios.saicoscopperheartmod.datagen;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -36,7 +37,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("RRR")
                 .define('R', ModItems.REINFORCED_COPPER_INGOT.get())
                 .unlockedBy(getHasName(ModItems.REINFORCED_COPPER_INGOT.get()), has(ModItems.REINFORCED_COPPER_INGOT.get()))
-                .save(pWriter);
+                .save(pWriter, new ResourceLocation("saicoscopperheartmod", "reinforced_copper_block_from_ingot"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.REINFORCED_COPPER_SCYTHE.get())
+                .pattern("RR ")
+                .pattern("  N")
+                .pattern(" P ")
+                .define('R', ModItems.REINFORCED_COPPER_INGOT.get())
+                .define('N', ModItems.REINFORCED_COPPER_NUGGET.get())
+                .define('P', Items.STICK)
+                .unlockedBy(getHasName(ModItems.REINFORCED_COPPER_INGOT.get()), has(ModItems.REINFORCED_COPPER_INGOT.get()))
+                .unlockedBy(getHasName(ModItems.REINFORCED_COPPER_NUGGET.get()), has(ModItems.REINFORCED_COPPER_NUGGET.get()))
+                .unlockedBy(getHasName(Items.STICK), has(Items.STICK))
+                .save(pWriter, new ResourceLocation("saicoscopperheartmod", "reinforced_copper_scythe"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.REINFORCED_COPPER_PANEL_BLOCK.get())
                 .pattern("RRR")
@@ -44,11 +57,23 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("RRR")
                 .define('R', ModItems.REINFORCED_COPPER_INGOT.get())
                 .unlockedBy(getHasName(ModItems.REINFORCED_COPPER_INGOT.get()), has(ModItems.REINFORCED_COPPER_INGOT.get()))
-                .save(pWriter);
+                .save(pWriter, new ResourceLocation("saicoscopperheartmod", "reinforced_copper_panel_block_from_ingots"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.REINFORCED_COPPER_INGOT.get(), 9)
                 .requires(ModBlocks.REINFORCED_COPPER_BLOCK.get())
                 .unlockedBy(getHasName(ModBlocks.REINFORCED_COPPER_BLOCK.get()), has(ModBlocks.REINFORCED_COPPER_BLOCK.get()))
+                .save(pWriter, new ResourceLocation("saicoscopperheartmod", "reinforced_copper_ingot_from_block"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.REINFORCED_COPPER_INGOT.get())
+                .pattern("RRR")
+                .pattern("RRR")
+                .pattern("RRR")
+                .define('R', ModItems.REINFORCED_COPPER_NUGGET.get())
+                .unlockedBy(getHasName(ModItems.REINFORCED_COPPER_NUGGET.get()), has(ModItems.REINFORCED_COPPER_NUGGET.get()))
+                .save(pWriter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.REINFORCED_COPPER_NUGGET.get(), 9)
+                .requires(ModItems.REINFORCED_COPPER_INGOT.get())
+                .unlockedBy(getHasName(ModItems.REINFORCED_COPPER_INGOT.get()), has(ModItems.REINFORCED_COPPER_INGOT.get()))
                 .save(pWriter);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.COPPER_NUGGET.get(), 9)
@@ -62,6 +87,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("RRR")
                 .define('R', ModItems.COPPER_NUGGET.get())
                 .unlockedBy(getHasName(ModItems.COPPER_NUGGET.get()), has(ModItems.COPPER_NUGGET.get()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.REINFORCED_COPPER_PANEL_DOOR.get(), 3)
+                .pattern("RR")
+                .pattern("RR")
+                .pattern("RR")
+                .define('R', ModBlocks.REINFORCED_COPPER_PANEL_BLOCK.get())
+                .unlockedBy(getHasName(ModBlocks.REINFORCED_COPPER_PANEL_BLOCK.get()), has(ModBlocks.REINFORCED_COPPER_PANEL_BLOCK.get()))
+                .save(pWriter);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.REINFORCED_COPPER_PANEL_TRAPDOOR.get(), 3)
+                .pattern("RRR")
+                .pattern("RRR")
+                .define('R', ModBlocks.REINFORCED_COPPER_PANEL_BLOCK.get())
+                .unlockedBy(getHasName(ModBlocks.REINFORCED_COPPER_PANEL_BLOCK.get()), has(ModBlocks.REINFORCED_COPPER_PANEL_BLOCK.get()))
                 .save(pWriter);
 
 

@@ -15,6 +15,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.scrobattostudios.saicoscopperheartmod.block.ModBlocks;
+import net.scrobattostudios.saicoscopperheartmod.event.ModEvents;
 import net.scrobattostudios.saicoscopperheartmod.event.ScytheHarvestHandler;
 import net.scrobattostudios.saicoscopperheartmod.item.ModCreativeModTabs;
 import net.scrobattostudios.saicoscopperheartmod.item.ModItems;
@@ -33,7 +34,7 @@ public class SaicosCopperHeartMod
         IEventBus modEventBus = context.getModEventBus();
 
         ModCreativeModTabs.register(modEventBus);
-
+        MinecraftForge.EVENT_BUS.register(ModEvents.class);
         ModItems.register(modEventBus);
 
         ModBlocks.register(modEventBus);
