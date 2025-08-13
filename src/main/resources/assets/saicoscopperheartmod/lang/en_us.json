@@ -4,6 +4,7 @@
   "item.saicoscopperheartmod.reinforced_copper_ingot": "Reinforced Copper Ingot",
   "item.saicoscopperheartmod.reinforced_copper_nugget": "Reinforced Copper Nugget",
   "item.saicoscopperheartmod.reinforced_copper_scythe": "Reinforced Copper Scythe",
+  "item.saicoscopperheartmod.reinforced_copper_arrow": "Reinforced Copper Arrow",
   "item.saicoscopperheartmod.reinforced_copper_boots": "Reinforced Copper Boots",
 
   "block.saicoscopperheartmod.reinforced_copper_block": "Reinforced Copper Block",
@@ -18,6 +19,8 @@
   "block.saicoscopperheartmod.exposed_copper_grate": "Exposed Copper Grate",
   "block.saicoscopperheartmod.weathered_copper_grate": "Weathered Copper Grate",
   "block.saicoscopperheartmod.oxidized_copper_grate": "Oxidized Copper Grate",
+
+  "block.saicoscopperheartmod.reinforced_copper_crate": "Reinforced Copper Crate",
 
   "block.saicoscopperheartmod.chiseled_copper_block": "Chiseled Copper Block",
   "block.saicoscopperheartmod.exposed_chiseled_copper_block": "Exposed Chiseled Copper Block",

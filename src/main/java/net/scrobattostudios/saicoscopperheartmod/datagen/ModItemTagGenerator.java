@@ -22,5 +22,8 @@ public class ModItemTagGenerator extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider pProvider) {
         this.tag(ItemTags.TRIMMABLE_ARMOR)
                 .add(ModItems.REINFORCED_COPPER_BOOTS.get());
+
+        this.tag(ItemTags.ARROWS)
+                .add(ModItems.REINFORCED_COPPER_ARROW.get());
     }
 }

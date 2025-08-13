@@ -1,8 +1,12 @@
 package net.scrobattostudios.saicoscopperheartmod;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.ArrowRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -15,10 +19,18 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.scrobattostudios.saicoscopperheartmod.block.ModBlocks;
+import net.scrobattostudios.saicoscopperheartmod.block.entity.ModBlocksEntities;
+import net.scrobattostudios.saicoscopperheartmod.client.renderer.CopperArrowRenderer;
+import net.scrobattostudios.saicoscopperheartmod.entity.ModEntityType;
+import net.scrobattostudios.saicoscopperheartmod.entity.projectile.CopperArrowEntity;
+import net.scrobattostudios.saicoscopperheartmod.event.ArrowEventHandler;
 import net.scrobattostudios.saicoscopperheartmod.event.ModEvents;
 import net.scrobattostudios.saicoscopperheartmod.event.ScytheHarvestHandler;
 import net.scrobattostudios.saicoscopperheartmod.item.ModCreativeModTabs;
 import net.scrobattostudios.saicoscopperheartmod.item.ModItems;
+import net.scrobattostudios.saicoscopperheartmod.screen.ModMenuTypes;
+import net.scrobattostudios.saicoscopperheartmod.screen.ReinforcedCopperCrateMenu;
+import net.scrobattostudios.saicoscopperheartmod.screen.ReinforcedCopperCrateScreen;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -33,12 +45,17 @@ public class SaicosCopperHeartMod
     public SaicosCopperHeartMod(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
-        ModCreativeModTabs.register(modEventBus);
-        MinecraftForge.EVENT_BUS.register(ModEvents.class);
-        ModItems.register(modEventBus);
-
         ModBlocks.register(modEventBus);
+        ModItems.register(modEventBus);
+        ModCreativeModTabs.register(modEventBus);
+        ModEntityType.ENTITY_TYPES.register(modEventBus);
+        ModBlocksEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
+
+        MinecraftForge.EVENT_BUS.register(ModEvents.class);
         MinecraftForge.EVENT_BUS.register(ScytheHarvestHandler.class);
+        MinecraftForge.EVENT_BUS.register(new ArrowEventHandler());
+
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
@@ -64,6 +81,10 @@ public class SaicosCopperHeartMod
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXPOSED_COPPER_GRATE.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.WEATHERED_COPPER_GRATE.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.OXIDIZED_COPPER_GRATE.get(), RenderType.translucent());
+
+            event.enqueueWork(() -> {
+                EntityRenderers.register(ModEntityType.COPPER_ARROW.get(), CopperArrowRenderer::new);
+            });
         }
     }
 }

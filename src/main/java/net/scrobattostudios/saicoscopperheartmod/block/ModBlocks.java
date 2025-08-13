@@ -12,6 +12,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.scrobattostudios.saicoscopperheartmod.SaicosCopperHeartMod;
 import net.scrobattostudios.saicoscopperheartmod.block.custom.ChiseledCopperBlock;
 import net.scrobattostudios.saicoscopperheartmod.block.custom.CopperGrateBlock;
+import net.scrobattostudios.saicoscopperheartmod.block.custom.ReinforcedCopperCrateBlock;
 import net.scrobattostudios.saicoscopperheartmod.item.ModItems;
 
 import java.util.function.Supplier;
@@ -44,6 +45,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> REINFORCED_COPPER_PANEL_BLOCK = registerBlock("reinforced_copper_panel_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
 
+    public static final RegistryObject<Block> REINFORCED_COPPER_CRATE = registerBlock("reinforced_copper_crate",
+            () -> new ReinforcedCopperCrateBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
+
     public static final RegistryObject<Block> REINFORCED_COPPER_PANEL_DOOR = registerBlock("reinforced_copper_panel_door",
             () -> new DoorBlock(BlockBehaviour.Properties.copy(ModBlocks.REINFORCED_COPPER_PANEL_BLOCK.get()).noOcclusion(), BlockSetType.IRON));
     public static final RegistryObject<Block> REINFORCED_COPPER_PANEL_TRAPDOOR = registerBlock("reinforced_copper_panel_trapdoor",
@@ -55,8 +59,8 @@ public class ModBlocks {
         return toReturn;
     }
 
-    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block){
-        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block){
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
     public static void register(IEventBus eventBus){

@@ -21,8 +21,6 @@ import net.scrobattostudios.saicoscopperheartmod.item.ModItems;
 
 import java.util.LinkedHashMap;
 
-import static net.minecraft.world.entity.EquipmentSlot.*;
-
 public class ModItemModelProvider extends ItemModelProvider {
 
 
@@ -50,6 +48,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.COPPER_NUGGET);
         simpleItem(ModItems.REINFORCED_COPPER_INGOT);
         simpleItem(ModItems.REINFORCED_COPPER_NUGGET);
+        simpleItem(ModItems.REINFORCED_COPPER_ARROW);
 
         handheldItem(ModItems.REINFORCED_COPPER_SCYTHE);
 
@@ -59,7 +58,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         trapdoorItem(ModBlocks.REINFORCED_COPPER_PANEL_TRAPDOOR);
 
     }
-
+    @SuppressWarnings("removal")
     private void trimmedArmorItem(RegistryObject<Item> itemRegistryObject) {
         final String MOD_ID = SaicosCopperHeartMod.MOD_ID; // Change this to your mod id
 
@@ -108,7 +107,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
 
     @SuppressWarnings("removal")
-    private ItemModelBuilder simpleItem(RegistryObject<Item> item){
+    private ItemModelBuilder simpleItem(RegistryObject<? extends Item> item){
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(SaicosCopperHeartMod.MOD_ID, "item/" + item.getId().getPath()));
