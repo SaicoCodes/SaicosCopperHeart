@@ -48,6 +48,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.COPPER_NUGGET);
         simpleItem(ModItems.REINFORCED_COPPER_INGOT);
         simpleItem(ModItems.REINFORCED_COPPER_NUGGET);
+
         simpleItem(ModItems.REINFORCED_COPPER_ARROW);
 
         handheldItem(ModItems.REINFORCED_COPPER_SCYTHE);
@@ -55,6 +56,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         trimmedArmorItem(ModItems.REINFORCED_COPPER_BOOTS);
 
         simpleBlockItem(ModBlocks.REINFORCED_COPPER_PANEL_DOOR);
+
+        assert ModBlocks.REINFORCED_COPPER_CRATE.getId() != null;
+        withExistingParent(ModBlocks.REINFORCED_COPPER_CRATE.getId().getPath(),
+                modLoc("block/reinforced_copper_crate_closed"));
+
         trapdoorItem(ModBlocks.REINFORCED_COPPER_PANEL_TRAPDOOR);
 
     }

@@ -13,8 +13,6 @@
   "block.saicoscopperheartmod.reinforced_copper_panel_door": "Reinforced Copper Panel Door",
   "block.saicoscopperheartmod.reinforced_copper_panel_trapdoor": "Reinforced Copper Panel Trapdoor",
 
-
-
   "block.saicoscopperheartmod.copper_grate": "Copper Grate",
   "block.saicoscopperheartmod.exposed_copper_grate": "Exposed Copper Grate",
   "block.saicoscopperheartmod.weathered_copper_grate": "Weathered Copper Grate",
@@ -27,5 +25,7 @@
   "block.saicoscopperheartmod.weathered_chiseled_copper_block": "Weathered Chiseled Copper Block",
   "block.saicoscopperheartmod.oxidized_chiseled_copper_block": "Oxidized Chiseled Copper Block",
 
-  "creativetab.copperheart_tab": "Saico's CopperHeart"
+  "creativetab.copperheart_tab": "Saico's CopperHeart",
+
+  "container.reinforced_copper_crate": "Reinforced Copper Crate"
 }

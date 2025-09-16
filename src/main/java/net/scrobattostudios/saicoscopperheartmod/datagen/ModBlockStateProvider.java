@@ -36,7 +36,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         getVariantBuilder(ModBlocks.REINFORCED_COPPER_CRATE.get()).forAllStates(state -> {
             boolean isOpen = state.getValue(BlockStateProperties.OPEN);
-            ResourceLocation model = modLoc("block/reinforced_copper_grate_" + (isOpen ? "open" : "closed"));
+            ResourceLocation model = modLoc("block/reinforced_copper_crate_" + (isOpen ? "open" : "closed"));
             return ConfiguredModel.builder().modelFile(new ModelFile.UncheckedModelFile(model)).build();
         });
 

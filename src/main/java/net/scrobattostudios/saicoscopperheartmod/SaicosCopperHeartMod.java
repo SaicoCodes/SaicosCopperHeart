@@ -81,6 +81,7 @@ public class SaicosCopperHeartMod
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXPOSED_COPPER_GRATE.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.WEATHERED_COPPER_GRATE.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModBlocks.OXIDIZED_COPPER_GRATE.get(), RenderType.translucent());
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.REINFORCED_COPPER_CRATE.get(), RenderType.cutout());
 
             event.enqueueWork(() -> {
                 EntityRenderers.register(ModEntityType.COPPER_ARROW.get(), CopperArrowRenderer::new);
