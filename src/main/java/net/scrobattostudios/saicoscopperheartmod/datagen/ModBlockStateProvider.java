@@ -1,18 +1,13 @@
 package net.scrobattostudios.saicoscopperheartmod.datagen;
 
-import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import net.scrobattostudios.saicoscopperheartmod.SaicosCopperHeartMod;
 import net.scrobattostudios.saicoscopperheartmod.block.ModBlocks;
-import org.jetbrains.annotations.NotNull;
 
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
@@ -34,11 +29,27 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.REINFORCED_COPPER_PANEL_BLOCK);
 
-        getVariantBuilder(ModBlocks.REINFORCED_COPPER_CRATE.get()).forAllStates(state -> {
+        horizontalBlock(ModBlocks.REINFORCED_KILN_BLOCK.get(),
+                state -> {
+                    boolean lit = state.getValue(BlockStateProperties.LIT);
+                    String suffix = lit ? "_on" : "_off";
+
+                    return models().cube("reinforced_kiln_block" + suffix,
+                            modLoc("block/reinforced_kiln_bottom"),
+                            modLoc("block/reinforced_kiln_top"),
+                            modLoc("block/reinforced_kiln_front" + suffix),
+                            modLoc("block/reinforced_kiln_side"),
+                            modLoc("block/reinforced_kiln_side"),
+                            modLoc("block/reinforced_kiln_side"))
+                            .texture("particle", modLoc("block/reinforced_kiln_side"));
+                });
+
+        /** getVariantBuilder(ModBlocks.REINFORCED_COPPER_CRATE.get()).forAllStates(state -> {
             boolean isOpen = state.getValue(BlockStateProperties.OPEN);
             ResourceLocation model = modLoc("block/reinforced_copper_crate_" + (isOpen ? "open" : "closed"));
             return ConfiguredModel.builder().modelFile(new ModelFile.UncheckedModelFile(model)).build();
-        });
+        }); **/
+
 
         doorBlockWithRenderType(((DoorBlock) ModBlocks.REINFORCED_COPPER_PANEL_DOOR.get()),
                 modLoc("block/reinforced_copper_panel_door_bottom"), modLoc("block/reinforced_copper_panel_door_top"), "cutout");
@@ -49,4 +60,5 @@ public class ModBlockStateProvider extends BlockStateProvider {
     private void blockWithItem(RegistryObject<Block> blockRegistryObject){
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
     }
+
 }

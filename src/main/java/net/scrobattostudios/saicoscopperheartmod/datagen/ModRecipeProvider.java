@@ -13,6 +13,7 @@ import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.scrobattostudios.saicoscopperheartmod.SaicosCopperHeartMod;
 import net.scrobattostudios.saicoscopperheartmod.block.ModBlocks;
 import net.scrobattostudios.saicoscopperheartmod.item.ModItems;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -26,7 +27,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
+    protected void buildRecipes(@NotNull Consumer<FinishedRecipe> pWriter) {
 
         oreSmelting(pWriter, COPPER_ALLOY_SMELTABLE, RecipeCategory.MISC, ModItems.REINFORCED_COPPER_INGOT.get(), 0.45f, 200, "reinforced_copper_ingot");
         oreBlasting(pWriter, COPPER_ALLOY_SMELTABLE, RecipeCategory.MISC, ModItems.REINFORCED_COPPER_INGOT.get(), 0.45f, 100, "reinforced_copper_ingot");
@@ -38,6 +39,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('R', ModItems.REINFORCED_COPPER_INGOT.get())
                 .unlockedBy(getHasName(ModItems.REINFORCED_COPPER_INGOT.get()), has(ModItems.REINFORCED_COPPER_INGOT.get()))
                 .save(pWriter, new ResourceLocation("saicoscopperheartmod", "reinforced_copper_block_from_ingot"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.REINFORCED_KILN_BLOCK.get())
+                .pattern("RRR")
+                .pattern("R R")
+                .pattern("CHC")
+                .define('R', ModItems.REINFORCED_COPPER_INGOT.get())
+                .define('C', ModBlocks.REINFORCED_COPPER_BLOCK.get())
+                .define('H', Blocks.FURNACE)
+                .unlockedBy(getHasName(ModItems.REINFORCED_COPPER_INGOT.get()), has(ModItems.REINFORCED_COPPER_INGOT.get()))
+                .unlockedBy(getHasName(ModBlocks.REINFORCED_COPPER_BLOCK.get()), has(ModBlocks.REINFORCED_COPPER_BLOCK.get()))
+                .unlockedBy(getHasName(Blocks.FURNACE), has(Blocks.FURNACE))
+                .save(pWriter, new ResourceLocation("saicoscopperheartmod", "reinforced_kiln"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.REINFORCED_COPPER_SCYTHE.get())
                 .pattern("RR ")
@@ -123,15 +136,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pWriter);
 
     }
-    protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {
+    protected static void oreSmelting(@NotNull Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, @NotNull RecipeCategory pCategory, @NotNull ItemLike pResult, float pExperience, int pCookingTIme, @NotNull String pGroup) {
         oreCooking(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTIme, pGroup, "_from_smelting");
     }
 
-    protected static void oreBlasting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
+    protected static void oreBlasting(@NotNull Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, @NotNull RecipeCategory pCategory, @NotNull ItemLike pResult, float pExperience, int pCookingTime, @NotNull String pGroup) {
         oreCooking(pFinishedRecipeConsumer, RecipeSerializer.BLASTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTime, pGroup, "_from_blasting");
     }
 
-    protected static void oreCooking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeSerializer<? extends AbstractCookingRecipe> pCookingSerializer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
+    protected static void oreCooking(@NotNull Consumer<FinishedRecipe> pFinishedRecipeConsumer, @NotNull RecipeSerializer<? extends AbstractCookingRecipe> pCookingSerializer, List<ItemLike> pIngredients, @NotNull RecipeCategory pCategory, @NotNull ItemLike pResult, float pExperience, int pCookingTime, @NotNull String pGroup, String pRecipeName) {
         for(ItemLike itemlike : pIngredients) {
             SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), pCategory, pResult, pExperience, pCookingTime, pCookingSerializer)
                     .group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike))

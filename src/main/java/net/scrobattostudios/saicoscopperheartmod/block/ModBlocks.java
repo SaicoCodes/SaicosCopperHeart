@@ -3,6 +3,7 @@ package net.scrobattostudios.saicoscopperheartmod.block;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
+import net.scrobattostudios.saicoscopperheartmod.block.custom.reinforced_kiln_folder.ReinforcedKilnBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -12,7 +13,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.scrobattostudios.saicoscopperheartmod.SaicosCopperHeartMod;
 import net.scrobattostudios.saicoscopperheartmod.block.custom.ChiseledCopperBlock;
 import net.scrobattostudios.saicoscopperheartmod.block.custom.CopperGrateBlock;
-import net.scrobattostudios.saicoscopperheartmod.block.custom.ReinforcedCopperCrateBlock;
+/** import net.scrobattostudios.saicoscopperheartmod.block.custom.ReinforcedCopperCrateBlock; **/
 import net.scrobattostudios.saicoscopperheartmod.item.ModItems;
 
 import java.util.function.Supplier;
@@ -45,8 +46,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> REINFORCED_COPPER_PANEL_BLOCK = registerBlock("reinforced_copper_panel_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
 
-    public static final RegistryObject<Block> REINFORCED_COPPER_CRATE = registerBlock("reinforced_copper_crate",
-            () -> new ReinforcedCopperCrateBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
+    /** public static final RegistryObject<Block> REINFORCED_COPPER_CRATE = registerBlock("reinforced_copper_crate",
+            () -> new ReinforcedCopperCrateBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK))); **/
+
+    public static final RegistryObject<Block> REINFORCED_KILN_BLOCK = registerBlock("reinforced_kiln_block",
+            () -> new ReinforcedKilnBlock(BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)));
 
     public static final RegistryObject<Block> REINFORCED_COPPER_PANEL_DOOR = registerBlock("reinforced_copper_panel_door",
             () -> new DoorBlock(BlockBehaviour.Properties.copy(ModBlocks.REINFORCED_COPPER_PANEL_BLOCK.get()).noOcclusion(), BlockSetType.IRON));

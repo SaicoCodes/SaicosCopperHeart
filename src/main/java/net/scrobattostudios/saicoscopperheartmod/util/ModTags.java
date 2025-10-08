@@ -16,12 +16,17 @@ public class ModTags {
 
         public static final TagKey<Block> SCYTHE_HARVESTABLE = tag("scythe_harvestable");
 
+        public static final TagKey<Block> SMELTABLE_BLOCKS = tag("smeltable_blocks");
+        public static final TagKey<Block> FUEL_BLOCKS = tag("fuel_blocks");
+
         private static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation(SaicosCopperHeartMod.MOD_ID, name));
         }
     }
 
     public static class Items {
+
+        public static final TagKey<Item> FUEL_ITEMS = tag("fuel_items");
 
         private static TagKey<Item> tag(String name){
             return ItemTags.create(new ResourceLocation(SaicosCopperHeartMod.MOD_ID, name));

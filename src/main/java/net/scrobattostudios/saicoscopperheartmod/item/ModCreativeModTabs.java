@@ -31,7 +31,9 @@ public class ModCreativeModTabs {
                         output.accept(ModBlocks.REINFORCED_COPPER_BLOCK.get());
                         output.accept(ModBlocks.REINFORCED_COPPER_PANEL_BLOCK.get());
 
-                        output.accept(ModBlocks.REINFORCED_COPPER_CRATE.get());
+                        output.accept(ModBlocks.REINFORCED_KILN_BLOCK.get());
+
+                        /** output.accept(ModBlocks.REINFORCED_COPPER_CRATE.get()); **/
 
                         output.accept(ModBlocks.REINFORCED_COPPER_PANEL_DOOR.get());
                         output.accept(ModBlocks.REINFORCED_COPPER_PANEL_TRAPDOOR.get());

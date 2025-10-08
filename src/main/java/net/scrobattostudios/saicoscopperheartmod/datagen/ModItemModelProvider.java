@@ -9,7 +9,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.armortrim.TrimMaterial;
 import net.minecraft.world.item.armortrim.TrimMaterials;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -20,6 +19,7 @@ import net.scrobattostudios.saicoscopperheartmod.block.ModBlocks;
 import net.scrobattostudios.saicoscopperheartmod.item.ModItems;
 
 import java.util.LinkedHashMap;
+import java.util.Objects;
 
 public class ModItemModelProvider extends ItemModelProvider {
 
@@ -28,7 +28,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         super(output, SaicosCopperHeartMod.MOD_ID, existingFileHelper);
     }
 
-    private static LinkedHashMap<ResourceKey<TrimMaterial>, Float> trimMaterials = new LinkedHashMap<>();
+    private static final LinkedHashMap<ResourceKey<TrimMaterial>, Float> trimMaterials = new LinkedHashMap<>();
     static {
         trimMaterials.put(TrimMaterials.QUARTZ, 0.1F);
         trimMaterials.put(TrimMaterials.IRON, 0.2F);
@@ -51,28 +51,29 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.REINFORCED_COPPER_ARROW);
 
-        handheldItem(ModItems.REINFORCED_COPPER_SCYTHE);
+        handheldItem();
 
-        trimmedArmorItem(ModItems.REINFORCED_COPPER_BOOTS);
+        trimmedArmorItem();
 
-        simpleBlockItem(ModBlocks.REINFORCED_COPPER_PANEL_DOOR);
+        simpleBlockItem();
 
-        assert ModBlocks.REINFORCED_COPPER_CRATE.getId() != null;
+        /** assert ModBlocks.REINFORCED_COPPER_CRATE.getId() != null;
         withExistingParent(ModBlocks.REINFORCED_COPPER_CRATE.getId().getPath(),
-                modLoc("block/reinforced_copper_crate_closed"));
+                modLoc("block/reinforced_copper_crate_closed")); **/
+
+        withExistingParent("reinforced_kiln_block", modLoc("block/reinforced_kiln_block_off"));
 
         trapdoorItem(ModBlocks.REINFORCED_COPPER_PANEL_TRAPDOOR);
 
     }
     @SuppressWarnings("removal")
-    private void trimmedArmorItem(RegistryObject<Item> itemRegistryObject) {
+    private void trimmedArmorItem() {
         final String MOD_ID = SaicosCopperHeartMod.MOD_ID; // Change this to your mod id
 
-        if(itemRegistryObject.get() instanceof ArmorItem armorItem) {
-            trimMaterials.entrySet().forEach(entry -> {
+        if(ModItems.REINFORCED_COPPER_BOOTS.get() instanceof ArmorItem armorItem) {
+            trimMaterials.forEach((trimMaterial, value) -> {
 
-                ResourceKey<TrimMaterial> trimMaterial = entry.getKey();
-                float trimValue = entry.getValue();
+                float trimValue = value;
 
                 String armorType = switch (armorItem.getEquipmentSlot()) {
                     case HEAD -> "helmet";
@@ -100,39 +101,43 @@ public class ModItemModelProvider extends ItemModelProvider {
                         .texture("layer1", trimResLoc);
 
                 // Non-trimmed armorItem file (normal variant)
-                this.withExistingParent(itemRegistryObject.getId().getPath(),
+                assert ModItems.REINFORCED_COPPER_BOOTS.getId() != null;
+                this.withExistingParent(ModItems.REINFORCED_COPPER_BOOTS.getId().getPath(),
                                 mcLoc("item/generated"))
                         .override()
                         .model(new ModelFile.UncheckedModelFile(trimNameResLoc))
                         .predicate(mcLoc("trim_type"), trimValue).end()
                         .texture("layer0",
                                 new ResourceLocation(SaicosCopperHeartMod.MOD_ID,
-                                        "item/" + itemRegistryObject.getId().getPath()));
+                                        "item/" + ModItems.REINFORCED_COPPER_BOOTS.getId().getPath()));
             });
         }
     }
 
     @SuppressWarnings("removal")
-    private ItemModelBuilder simpleItem(RegistryObject<? extends Item> item){
-        return withExistingParent(item.getId().getPath(),
+    private void simpleItem(RegistryObject<? extends Item> item){
+        assert item.getId() != null;
+        withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(SaicosCopperHeartMod.MOD_ID, "item/" + item.getId().getPath()));
     }
     public void trapdoorItem(RegistryObject<Block> block) {
-        this.withExistingParent(SaicosCopperHeartMod.MOD_ID + ":" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath(),
-                modLoc("block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath() + "_bottom"));
+        this.withExistingParent(SaicosCopperHeartMod.MOD_ID + ":" + Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block.get())).getPath(),
+                modLoc("block/" + Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block.get())).getPath() + "_bottom"));
     }
 
-    private ItemModelBuilder handheldItem(RegistryObject<Item> item) {
-        return withExistingParent(item.getId().getPath(),
+    private void handheldItem() {
+        assert ModItems.REINFORCED_COPPER_SCYTHE.getId() != null;
+        withExistingParent(ModItems.REINFORCED_COPPER_SCYTHE.getId().getPath(),
                 new ResourceLocation("item/handheld")).texture("layer0",
-                new ResourceLocation(SaicosCopperHeartMod.MOD_ID,"item/" + item.getId().getPath()));
+                new ResourceLocation(SaicosCopperHeartMod.MOD_ID, "item/" + ModItems.REINFORCED_COPPER_SCYTHE.getId().getPath()));
     }
 
     @SuppressWarnings("removal")
-    private ItemModelBuilder simpleBlockItem(RegistryObject<Block> item) {
-        return  withExistingParent(item.getId().getPath(),
+    private void simpleBlockItem() {
+        assert ModBlocks.REINFORCED_COPPER_PANEL_DOOR.getId() != null;
+        withExistingParent(ModBlocks.REINFORCED_COPPER_PANEL_DOOR.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(SaicosCopperHeartMod.MOD_ID, "item/" + item.getId().getPath()));
+                new ResourceLocation(SaicosCopperHeartMod.MOD_ID, "item/" + ModBlocks.REINFORCED_COPPER_PANEL_DOOR.getId().getPath()));
     }
 }
